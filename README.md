@@ -1,6 +1,49 @@
-# Getting Started with Create React App
+# React Calculator with Testing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple calculator application built with React, featuring comprehensive test coverage using Jest and React Testing Library.
+
+## Features
+
+- Basic arithmetic operations (addition, subtraction, multiplication)
+- Clean, responsive UI using Tailwind CSS
+- Comprehensive test suite
+- React 18+ compatibility
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Node.js (v16 or higher)
+- npm (v8 or higher)
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yogeshHumancloud/calculator-tdd.git
+cd calculator-tdd
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+## Project Structure
+
+```
+calculator-tdd/
+├── src/
+│   ├── components/
+│   │   ├── Calculator.js
+│   │   └── Calculator.test.js
+│   ├── App.js
+│   ├── index.js
+│   └── setupTests.js
+├── babel.config.js
+├── jest.config.js
+├── package.json
+└── README.md
+```
 
 ## Available Scripts
 
@@ -8,63 +51,118 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Runs the app in development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in watch mode.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Running Tests
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The project uses Jest and React Testing Library for testing. To run the tests:
 
-### `npm run eject`
+```bash
+# Run tests once
+npm test
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Run tests in watch mode
+npm test -- --watch
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Test Coverage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The test suite covers:
+- Component rendering
+- Basic arithmetic operations
+- User interactions
+- Display updates
+- Clear functionality
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Development
 
-## Learn More
+1. Start the development server:
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Make your changes
+3. Run tests to ensure everything works:
+```bash
+npm test
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Setup Steps
 
-### Code Splitting
+1. Create a new React project:
+```bash
+npx create-react-app calculator-tdd
+cd calculator-tdd
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Install required dependencies:
+```bash
+npm install @testing-library/react@12.1.5 @testing-library/jest-dom@5.16.5 @testing-library/user-event@13.5.0 jest@27.5.1 jest-environment-jsdom@27.5.1
+```
 
-### Analyzing the Bundle Size
+3. Create `babel.config.js`:
+```javascript
+module.exports = {
+  presets: [
+    ['@babel/preset-env', { targets: { node: 'current' } }],
+    ['@babel/preset-react', { runtime: 'automatic' }],
+  ],
+};
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. Create `jest.config.js`:
+```javascript
+module.exports = {
+  testEnvironment: 'jest-environment-jsdom',
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
+  moduleNameMapper: {
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+  },
+  transform: {
+    '^.+\\.(js|jsx)$': 'babel-jest',
+  },
+  testMatch: ['**/__tests__/**/*.js', '**/*.test.js'],
+};
+```
 
-### Making a Progressive Web App
+5. Update `src/setupTests.js`:
+```javascript
+import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/extend-expect';
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Dependencies
 
-### Advanced Configuration
+Main dependencies:
+- React 18
+- @testing-library/react@12.1.5
+- @testing-library/jest-dom@5.16.5
+- @testing-library/user-event@13.5.0
+- jest@27.5.1
+- jest-environment-jsdom@27.5.1
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributing
 
-### Deployment
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/YourFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
 
-### `npm run build` fails to minify
+This project is licensed under the MIT License - see the LICENSE file for details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+
+Yogesh Vitekar - [@yogeshvitekar](https://github.com/yogeshHumancloud)
+Project Link: [https://github.com/yogeshHumancloud/react-calculator-tdd](https://github.com/yogeshHumancloud/react-calculator-tdd)
